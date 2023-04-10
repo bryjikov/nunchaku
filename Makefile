@@ -5,7 +5,6 @@ all: build test
 
 build:
 	@dune build @install -j $J
-	cp _build/default/src/main/nunchaku.exe .
 
 clean:
 	@dune clean

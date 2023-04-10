@@ -56,6 +56,7 @@ let pp_typed_ = ref false
 let pp_skolem_ = ref false
 let pp_mono_ = ref false
 let pp_elim_match_ = ref false
+let pp_swap_and_ = ref false
 let pp_elim_recursion_ = ref false
 let pp_elim_hof_ = ref false
 let pp_lambda_lift_ = ref false
@@ -488,6 +489,7 @@ let make_model_pipeline () =
       ~print:(!pp_elim_preds_ || !pp_all_) ~check @@@
     Tr.LambdaLift.pipe ~print:(!pp_lambda_lift_ || !pp_all_) ~check @@@
     Tr.Elim_HOF.pipe ~print:(!pp_elim_hof_ || !pp_all_) ~check @@@
+    Tr.SwapAnd.pipe ~print:(!pp_swap_and_ || !pp_all_) ~check @@@
     Tr.ElimRecursion.pipe ~print:(!pp_elim_recursion_ || !pp_all_) ~check @@@
     Tr.IntroGuards.pipe ~print:(!pp_intro_guards_ || !pp_all_) ~check @@@
     Tr.Model_clean.pipe ~print:(!pp_model_ || !pp_all_) @@@
