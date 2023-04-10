@@ -1,0 +1,8 @@
+data nat :=
+  | z
+  | s nat.
+
+#goal z = z.
+#goal z = z && ~(s z = s z).
+#goal s (s z) = s (s z) && s (s (s z)) = s (s (s z)).
+goal z = z && (s z = s z && s (s (s z)) = s (s z)).

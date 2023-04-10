@@ -1,0 +1,11 @@
+data nat :=
+  | z
+  | s nat.
+
+pred even : nat -> prop :=
+  even z;
+  forall n. odd n => even (s n)
+and odd : nat -> prop :=
+  forall n. even n => odd (s n).
+
+goal exists n. odd n && even n.

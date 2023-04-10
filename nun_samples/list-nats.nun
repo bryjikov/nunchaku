@@ -1,0 +1,25 @@
+data nat :=
+  | z
+  | s nat.
+
+data list a :=
+  | nil
+  | cons a (list a).
+
+rec head : pi a. list a -> a :=
+  forall first rest. head (cons first rest) = first
+and tail : pi a. list a -> list a :=
+  forall first rest. tail (cons first rest) = rest.
+
+rec length : pi a. list a -> nat :=
+  length nil = z;
+  forall f r. length (cons f r) = s (length r).
+
+goal
+  let z0 := z in
+  let o1 := s 0 in
+  let t2 := s 0 in
+  0 = 0 && 1 = 1 && 2 = 2.
+
+# goal length nil = z.
+# goal length (cons (s (s (s z))) (cons (s (s z)) (cons (s z) (cons z nil)))) = (s (s (s (s z)))).
